@@ -17,11 +17,12 @@ public class UserAPI {
     private List<User> users;
 
     public UserAPI() {
-
         users = new ArrayList<>();
-        users.add(new User(1,"Jack8787","Certyfikat","CA","Klucz prywatny", "Klucz tls", LocalDate.of(2021,1,1)));
-        users.add(new User(2,"Sparrow529","Certyfikat","CA","Klucz prywatny", "Klucz tls", LocalDate.of(2021,1,1)));
     }
+    
+
+
+
 
 
     @GetMapping("/all")

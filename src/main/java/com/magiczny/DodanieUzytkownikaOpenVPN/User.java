@@ -1,37 +1,42 @@
 package com.magiczny.DodanieUzytkownikaOpenVPN;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
 
+@Entity
 public class User {
 
     public User() {
     }
 
-    public User(int id, String name, String certificateCA, String certificateCert, String privateKey, String tlsAuth, LocalDate registerDate) {
-        this.id = id;
+    public User(String name) {
+
         this.name = name;
-        this.certificateCA = certificateCA;
+        /*this.certificateCA = certificateCA;
         this.certificateCert = certificateCert;
         this.privateKey = privateKey;
         this.tlsAuth = tlsAuth;
         this.registerDate = registerDate;
-    }
 
-    private int id;
+         */
+   }
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long  id;
+
     private String name;
-    private String certificateCA;
+    /*private String certificateCA;
     private String certificateCert;
     private String privateKey;
     private String tlsAuth;
-    private LocalDate registerDate;
+    private LocalDate registerDate;*/
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -42,7 +47,7 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
-
+/*
     public String getCertificateCA() {
         return certificateCA;
     }
@@ -82,4 +87,6 @@ public class User {
     public void setRegisterDate(LocalDate registerDate) {
         this.registerDate = registerDate;
     }
+
+ */
 }
