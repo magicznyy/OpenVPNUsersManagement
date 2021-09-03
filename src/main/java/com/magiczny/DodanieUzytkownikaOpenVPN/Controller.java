@@ -28,11 +28,25 @@ public class Controller {
     }
 
 
+    //pobieranie wszystkich uzytkowwnikow z bazy
+    @GetMapping("/allUsers")
+    public String getAll() {
+
+        Iterable<User> all = userRepo.findAll();
+
+        for(User user: all)
+        {
+            String x = user.toString();
+            System.out.print(x);
+        }
+
+        return "viewDetails";
+    }
+
+
     @GetMapping("/addUser")
     public String addUserForm() {
         return "addUserForm" ;
     }
-
-
 
 }
