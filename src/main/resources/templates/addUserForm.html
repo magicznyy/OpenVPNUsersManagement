@@ -1,21 +1,18 @@
 <!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Adding new user</title>
+    <title>Adding a new user</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
 <div>
-    <h1>Dodaj nowego użytkownika</h1>
-    <form>
-        <label>Nazwa użytkownika</label> <input type="text"/>
-        <br>
-
-        <button>Dodaj użytkownika</button>
+    <h1>Add a new user</h1>
+    <form method="post" action="/save">
+        User name: <input type="text" name="userName"/>
+        Password: <input type="text" name="password"/>
+        <input type="submit" value="Submit">
     </form>
-    <div>
-        <button>Pokaż wszystkich użytowników</button>
-    </div>
+
 </div>
 
 

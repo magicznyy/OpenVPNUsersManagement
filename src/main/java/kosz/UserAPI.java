@@ -1,6 +1,7 @@
-package com.magiczny.DodanieUzytkownikaOpenVPN;
+package kosz;
 
 
+import com.magiczny.DodanieUzytkownikaOpenVPN.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
