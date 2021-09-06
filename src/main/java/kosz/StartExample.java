@@ -1,6 +1,8 @@
-package com.magiczny.DodanieUzytkownikaOpenVPN;
+package kosz;
 
 
+import com.magiczny.DodanieUzytkownikaOpenVPN.User;
+import com.magiczny.DodanieUzytkownikaOpenVPN.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;

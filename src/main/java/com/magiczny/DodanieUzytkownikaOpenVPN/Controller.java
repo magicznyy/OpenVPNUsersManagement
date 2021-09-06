@@ -2,8 +2,17 @@ package com.magiczny.DodanieUzytkownikaOpenVPN;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.net.MalformedURLException;
 
 @org.springframework.stereotype.Controller
 
@@ -24,29 +33,44 @@ public class Controller {
         User user = new User(userName,password);
         userRepo.save(user);
 
-        return "viewDetails";
+        return "index";
     }
 
 
     //pobieranie wszystkich uzytkowwnikow z bazy
-    @GetMapping("/allUsers")
+    @ResponseBody
+    @GetMapping("/getAll")
     public String getAll() {
 
         Iterable<User> all = userRepo.findAll();
-
+        String view = new String();
+        StringBuilder builder = new StringBuilder("<!DOCTYPE html >\n" +
+                "\n" +
+                "<html lang=\"en\">\n" +
+                "\n" +
+                "<head>\n" +
+                "    <meta charset=\"UTF-8\">\n" +
+                "    <title>Title</title>\n" +
+                "</head>\n" +
+                "<body> <table>");
         for(User user: all)
         {
-            String x = user.toString();
-            System.out.print(x);
+           builder.append("<tr><td>"+user.getName()+"</td><td>"+user.getDate().toString()+"</td></tr>");
         }
+        builder.append("</table></body>");
+        view = builder.toString();
+        return view;
 
-        return "viewDetails";
     }
 
 
-    @GetMapping("/addUser")
+    @RequestMapping("/addUser")
     public String addUserForm() {
         return "addUserForm" ;
     }
+
+
+
+
 
 }

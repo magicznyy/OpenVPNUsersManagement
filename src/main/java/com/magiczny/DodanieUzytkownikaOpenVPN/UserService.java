@@ -24,26 +24,4 @@ public class UserService {
         }
 
     }
-
-    public String getCACert(){
-
-        return "CACert";
-    }
-
-    public String getPrivateKey(){
-
-        return "key";
-    }
-
-    public String getTlsKey(){
-
-        return "Tlskey";
-    }
-
-    public String getCert(){
-
-        return "Cert";
-    }
-
-
 }
