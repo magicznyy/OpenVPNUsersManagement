@@ -29,7 +29,7 @@ public class Controller {
     @PostMapping("/save")
     public String saveDetails(@RequestParam("userName") String userName, @RequestParam("password") String password) {
         UserService userService = new UserService();
-        userService.createTxt();
+        userService.createOVPNUser(userName);
         User user = new User(userName,password);
         userRepo.save(user);
 
@@ -47,6 +47,8 @@ public class Controller {
 
            if(user.getName().equals(userName))
            {
+               UserService userService = new UserService();
+               userService.deleteOVPNUser(userName);
                userRepo.deleteById(user.getId());
            }
         }
