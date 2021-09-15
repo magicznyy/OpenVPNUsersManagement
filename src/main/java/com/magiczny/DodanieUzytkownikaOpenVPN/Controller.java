@@ -36,6 +36,23 @@ public class Controller {
         return "index";
     }
 
+    //usuniecie uzytkowika po nazwie
+    @GetMapping("/delete")
+    public String deleteUser(@RequestParam("userName") String userName) {
+
+        Iterable<User> all = userRepo.findAll();
+
+        for(User user: all)
+        {
+
+           if(user.getName().equals(userName))
+           {
+               userRepo.deleteById(user.getId());
+           }
+        }
+        return "index";
+    }
+
 
     //pobieranie wszystkich uzytkowwnikow z bazy
     @ResponseBody
@@ -69,7 +86,10 @@ public class Controller {
         return "addUserForm" ;
     }
 
-
+    @RequestMapping("/deleteUser")
+    public String deleteUserForm() {
+        return "deleteUserForm" ;
+    }
 
 
 
